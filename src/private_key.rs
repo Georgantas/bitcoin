@@ -1,3 +1,5 @@
+//! Bitcoin Private Keys
+
 const PRIVATE_KEY_LOWER_BOUND: [u8; 32] = {
     let mut ret: [u8; 32] = [0x00; 32];
     ret[31] = 0x01;
@@ -9,18 +11,19 @@ const PRIVATE_KEY_UPPER_BOUND: [u8; 32] = [
     0xBA, 0xAE, 0xDC, 0xE6, 0xAF, 0x48, 0xA0, 0x3B, 0xBF, 0xD2, 0x5E, 0x8C, 0xD0, 0x36, 0x41, 0x40,
 ];
 
+/// A bitcoin private key
 #[derive(Debug, Clone)]
 pub struct PrivateKey(pub [u8; 32]);
 
 impl std::fmt::Display for PrivateKey {
-    /// Will print in WIF format
+    /// The private key is displayed in WIF format
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{}", self.to_wif())
     }
 }
 
 impl PrivateKey {
-    /// TODO: Create a WIF type and override From<PrivateKey>
+    /// Converts the private to to Wallet Import Format
     pub fn to_wif(&self) -> std::string::String {
         let mut ret: [u8; 33] = [0; 33];
         ret[0] = 0x80;
@@ -29,7 +32,15 @@ impl PrivateKey {
         bitcoin::util::base58::check_encode_slice(&ret[..])
     }
 
-    pub fn generate_new() -> PrivateKey {
+    /// Generates a new random PrivateKey
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use bitcoin_wallet::private_key::PrivateKey;
+    /// let private_key = PrivateKey::new();
+    /// ```
+    pub fn new() -> PrivateKey {
         use rand::Rng;
         let mut rng = rand::thread_rng();
 
@@ -59,10 +70,6 @@ impl PrivateKey {
 #[cfg(test)]
 mod tests {
     use super::*;
-    #[test]
-    fn can_generate_random_private_key() {
-        PrivateKey::generate_new();
-    }
 
     #[test]
     fn displays_in_wif_format() {

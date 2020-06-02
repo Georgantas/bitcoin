@@ -1,3 +1,5 @@
+//! Bitcoin Addresses
+
 use crate::private_key::PrivateKey;
 use bitcoin::network::constants::Network;
 use bitcoin::secp256k1;
@@ -6,12 +8,13 @@ use bitcoin::Address as Addr;
 use bitcoin::PublicKey;
 use std::convert::TryFrom;
 
-/// Wrapper to Addr to implement TryFrom
+/// Wrapper to bitcoin::Address to implement TryFrom
 pub struct Address(pub Addr);
 
 impl TryFrom<PrivateKey> for Address {
     type Error = Error;
 
+    /// Attempts to convert a PrivateKey to a bitcoin p2pkh Address
     fn try_from(private_key: PrivateKey) -> Result<Address, Error> {
         let secp = Secp256k1::new();
         let public_key = PublicKey {

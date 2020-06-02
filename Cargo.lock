@@ -24,6 +24,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b375d62f341cef9cd9e77793ec8f1db3fc9ce2e4d57e982c8fe697a2c16af3b6"
 
 [[package]]
+name = "bitcoin_wallet"
+version = "0.1.0"
+dependencies = [
+ "bitcoin",
+ "rand",
+]
+
+[[package]]
 name = "cc"
 version = "1.0.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -34,14 +42,6 @@ name = "cfg-if"
 version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4785bdd1c96b2a846b2bd7cc02e86b6b3dbf14e7e53446c4f54c92a361040822"
-
-[[package]]
-name = "generate_bitcoin_paper_wallet"
-version = "0.1.0"
-dependencies = [
- "bitcoin",
- "rand",
-]
 
 [[package]]
 name = "getrandom"
