@@ -1,4 +1,4 @@
-use bitcoin_wallet::{Address, PrivateKey};
+use generate_bitcoin_paper_wallet::{Address, PrivateKey};
 
 use std::convert::TryFrom;
 

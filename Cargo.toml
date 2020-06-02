@@ -1,10 +1,12 @@
 [package]
-name = "bitcoin_wallet"
+name = "generate_bitcoin_paper_wallet"
 version = "0.1.0"
 authors = ["georgantas <18753033+Georgantas@users.noreply.github.com>"]
 edition = "2018"
 license = "MIT"
 description = "Generate a bitcoin paper wallet"
+repository = "https://github.com/Georgantas/generate-bitcoin-paper-wallet"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

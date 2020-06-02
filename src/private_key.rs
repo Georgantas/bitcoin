@@ -37,7 +37,7 @@ impl PrivateKey {
     /// # Examples
     ///
     /// ```
-    /// use bitcoin_wallet::private_key::PrivateKey;
+    /// use generate_bitcoin_paper_wallet::private_key::PrivateKey;
     /// let private_key = PrivateKey::new();
     /// ```
     pub fn new() -> PrivateKey {
