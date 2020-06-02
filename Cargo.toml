@@ -1,5 +1,5 @@
 [package]
-name = "generate-bitcoin-paper-wallet"
+name = "generate_bitcoin_paper_wallet"
 version = "0.1.0"
 authors = ["georgantas <18753033+Georgantas@users.noreply.github.com>"]
 edition = "2018"

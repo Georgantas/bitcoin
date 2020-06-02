@@ -9,25 +9,8 @@ const PRIVATE_KEY_UPPER_BOUND: [u8; 32] = [
     0xBA, 0xAE, 0xDC, 0xE6, 0xAF, 0x48, 0xA0, 0x3B, 0xBF, 0xD2, 0x5E, 0x8C, 0xD0, 0x36, 0x41, 0x40,
 ];
 
-/*
-#[derive(Debug, PartialEq)]
-pub enum Error {
-    PrivateKeyGenerationError,
-}
-
-impl std::error::Error for Error {}
-
-impl std::fmt::Display for Error {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match *self {
-            Error::PrivateKeyGenerationError => write!(f, "Could not generate a private key."),
-        }
-    }
-}
-*/
-
-#[derive(Debug)]
-pub struct PrivateKey([u8; 32]);
+#[derive(Debug, Clone)]
+pub struct PrivateKey(pub [u8; 32]);
 
 impl std::fmt::Display for PrivateKey {
     /// Will print in WIF format
